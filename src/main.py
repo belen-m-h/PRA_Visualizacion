@@ -41,26 +41,28 @@ cat_columns = ['host_identity_verified','instant_bookable','room type','cancella
 num_columns = ['lat','long','minimum nights','number of reviews','reviews per month','price','service fee'
               ,'calculated host listings count','availability 365']
 df = df.dropna(subset=['neighbourhood group'])
+df = df.dropna(subset=['lat'])
+df = df.dropna(subset=['long'])
 
 cat_df = df[cat_columns]
-from scipy.stats import chi2_contingency
-# Create a chi-squared contingency table
-chi2_contingency_table = pd.DataFrame(index=cat_columns, columns=cat_columns, dtype=float)
-
-for col1 in cat_columns:
-    for col2 in cat_columns:
-        if col1 == col2:
-            chi2_contingency_table.loc[col1, col2] = 1.0
-        else:
-            contingency_table = pd.crosstab(cat_df[col1], cat_df[col2])
-            chi2, _, _, _ = chi2_contingency(contingency_table)
-            chi2_contingency_table.loc[col1, col2] = chi2
-
-# Create a heatmap to visualize the chi-squared test results
-plt.figure(figsize=(8, 4))
-sns.heatmap(chi2_contingency_table, annot=True, fmt=".2f", cmap='coolwarm')
-plt.title("Chi-Squared Test Results for Categorical Variables")
-plt.show()
+# from scipy.stats import chi2_contingency
+# # Create a chi-squared contingency table
+# chi2_contingency_table = pd.DataFrame(index=cat_columns, columns=cat_columns, dtype=float)
+#
+# for col1 in cat_columns:
+#     for col2 in cat_columns:
+#         if col1 == col2:
+#             chi2_contingency_table.loc[col1, col2] = 1.0
+#         else:
+#             contingency_table = pd.crosstab(cat_df[col1], cat_df[col2])
+#             chi2, _, _, _ = chi2_contingency(contingency_table)
+#             chi2_contingency_table.loc[col1, col2] = chi2
+#
+# # Create a heatmap to visualize the chi-squared test results
+# plt.figure(figsize=(8, 4))
+# sns.heatmap(chi2_contingency_table, annot=True, fmt=".2f", cmap='coolwarm')
+# plt.title("Chi-Squared Test Results for Categorical Variables")
+# plt.show()
 
 
 
@@ -72,82 +74,144 @@ import folium
 from folium.plugins import MarkerCluster
 
 
-mapa = {
-'Brooklyn':[40.6782,-73.9442],
-'brookln':[40.6782,-73.9442],
-'Manhattan':[40.7831,-73.9712],
-'manhatan':[40.7831,-73.9712],
-'Queens':[40.7282,-73.7949],
-'Staten Island':[ 40.5795,-74.1502],
-'Bronx':[ 40.8448,-73.8648],
-}
-
-
-# coord_mapping = dict(zip(df['neighbourhood group'], zip(df['latitude'], df['longitude'])))
-
-# Añadir las columnas de latitud y longitud al DataFrame
-# df['latitude'] = mapa[df['neighbourhood group']][0]
-# df['longitude'] =  mapa[df['neighbourhood group']][1]
-
-df['latitude'] = df['neighbourhood group'].map(lambda x: mapa.get(x, [None, None])[0])
-df['longitude'] = df['neighbourhood group'].map(lambda x: mapa.get(x, [None, None])[1])
-
-
-# Visualizar las longitudes con los nuevos campos
-plt.figure(figsize=(10, 6))
-plt.scatter(df['longitude'], df['latitude'], c='blue', marker='o', label='Neighbourhood Group')
-plt.xlabel('Longitude')
-plt.ylabel('Latitude')
-plt.title('Mapa de Longitudes con Nuevos Campos')
-plt.legend()
-plt.show()
 
 
 
-import folium
-from folium.plugins import MarkerCluster
 
+
+
+
+# import folium
+# from folium.plugins import MarkerCluster
+#
 # Supongamos que tienes un DataFrame llamado 'df' con datos geográficos
 # y una columna 'latitude' y 'longitude'
 
 # Crear un mapa centrado en las coordenadas promedio
-map_center = [df['latitude'].mean(), df['longitude'].mean()]
-mymap = folium.Map(location=map_center, zoom_start=10)
-
-# Agregar marcadores para cada casa
-marker_cluster = MarkerCluster().add_to(mymap)
-
-for index, row in df.iterrows():
-    folium.Marker([row['latitude'], row['longitude']]).add_to(marker_cluster)
-
-# Mostrar el mapa
-mymap.save('mapa_de_casas.html')
+# map_center = [df['lat'].mean(), df['long'].mean()]
+# mymap = folium.Map(location=map_center, zoom_start=10)
+#
+# # Agregar marcadores para cada casa
+# marker_cluster = MarkerCluster().add_to(mymap)
+#
+# for index, row in df.iterrows():
+#     folium.Marker([row['lat'], row['long']]).add_to(marker_cluster)
+#
+# # Mostrar el mapa
+# mymap.save('mapa_de_casas.html')
 
 
 
 
     # ¿Se observan diferencias notables en precios y disponibilidad entre distintos vecindarios?
 
-plt.figure(figsize=(8, 4))
-sns.barplot(data=df, x='neighbourhood group', y='price', hue='room type')
-plt.xlabel('neighbourhood group')
-plt.ylabel('room type')
-plt.show()
+# plt.figure(figsize=(8, 4))
+# sns.barplot(data=df, x='neighbourhood group', y='price', hue='room type')
+# plt.xlabel('neighbourhood group')
+# plt.ylabel('room type')
+# plt.show()
 
 
 # Características de alojamientos:
     # ¿Cuál es la distribución de tipos de propiedades?,¿ son casas enteras, habitaciones, pisos enteros,...?
+
+
+# Visualizar la distribución de tipos de propiedades
+# plt.figure(figsize=(8, 6))
+# sns.countplot(x='room type', data=df, palette='viridis')
+# plt.title('Distribución de Tipos de Propiedades')
+# plt.xlabel('Tipo de Propiedad')
+# plt.ylabel('Cantidad')
+# plt.show()
+
+
     # ¿Cómo afectan las características de los alojamientos en el precio?
+
+# Visualizar los precios según el tipo de alojamiento
+# plt.figure(figsize=(10, 6))
+# sns.barplot(x='room type', y='price', data=df, palette='viridis')
+# plt.title('Precios según el Tipo de Alojamiento')
+# plt.xlabel('Tipo de Alojamiento')
+# plt.ylabel('Precio')
+# plt.show()
     # ¿Cuántos anfitriones tienen la distinción de super anfitrión?
+
+# el dataset no tiene la columna que lo inidca
     # ¿Hay una correlación entre el rating de la propiedad y si la casa es de un super anfitrión?
+# el dataset no tiene la columna que lo inidca
+
 
 #  Calificaciones:
     # ¿Cómo se distribuyen las calificaciones de las revisiones?
+# plt.figure(figsize=(8, 6))
+# sns.histplot(df['review rate number'], bins=20, kde=True, color='skyblue')
+# plt.title('Distribución de Calificaciones de Revisiones')
+# plt.xlabel('Calificación de la Revisión')
+# plt.ylabel('Frecuencia')
+# plt.show()
+
+#
+# plt.figure(figsize=(10, 6))
+# sns.countplot(x='review rate number', data=df, palette='viridis')
+# plt.title('Frecuencia de Calificaciones de Revisiones')
+# plt.xlabel('Calificación de la Revisión')
+# plt.ylabel('Frecuencia')
+# plt.show()
     # ¿Hay correlaciones entre las diferentes categorías de calificaciones y el precio?
 
 # Temporalidad:
     # ¿Existen patrones estacionales en los precios o en la ocupación de las propiedades?
 
+# Visualizar patrones estacionales en los precios
+# plt.figure(figsize=(12, 6))
+# sns.lineplot(x=df.index, y='price', data=df, color='skyblue')
+# plt.title('Patrones Estacionales en los Precios a lo Largo del Tiempo')
+# plt.xlabel('Fecha')
+# plt.ylabel('Precio')
+# plt.show()
+
+
 # Servicios de las propiedades:
     # ¿Cuáles son los servicios más comunes ofrecidos por los anfitriones?
     # ¿Existe una correlación entre la presencia de ciertos servicios y el precio?
+
+# plt.figure(figsize=(10, 6))
+# sns.boxplot(x='cancellation_policy', y='price', data=df, palette='Set3')
+# plt.title('Relación entre Precios y Política de Cancelación')
+# plt.xlabel('Política de Cancelación')
+# plt.ylabel('Precio')
+# plt.show()
+#
+# plt.figure(figsize=(10, 6))
+# sns.barplot(x='cancellation_policy', y='price', data=df, palette='Set3', estimator=np.median)
+# plt.title('Relación entre Precios y Política de Cancelación')
+# plt.xlabel('Política de Cancelación')
+# plt.ylabel('Precio Mediano')
+# plt.show()
+
+
+# Interactivo
+import plotly.express as px
+
+# Supongamos que tienes un DataFrame llamado 'df' con las columnas relevantes, incluyendo 'price' y 'cancellation_policy'
+# Asegúrate de que estas columnas y los datos estén correctamente estructurados
+
+# Crear un DataFrame de ejemplo
+#
+# # Crear el gráfico interactivo con Plotly
+# fig = px.scatter(df, x='cancellation_policy', y='price', color='price', title='Relación entre Precios y Política de Cancelación',
+#                  labels={'cancellation_policy': 'Política de Cancelación', 'price': 'Precio'})
+# fig.update_layout(showlegend=False)  # Ocultar la leyenda del color para mejorar la visualización
+#
+# # Mostrar el gráfico interactivo
+# fig.show()
+
+
+# Crear el mapa interactivo con Plotly
+fig = px.scatter_mapbox(df, lat='lat', lon='long', color='price', size='price',
+                        color_continuous_scale='Viridis', size_max=15, zoom=10,
+                        mapbox_style="carto-positron", title='Mapa Interactivo de Precios')
+fig.update_layout(showlegend=False)  # Ocultar la leyenda del color para mejorar la visualización
+
+# Mostrar el mapa interactivo
+fig.show()
