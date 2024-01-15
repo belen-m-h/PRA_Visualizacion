@@ -1,68 +1,28 @@
 <html>
+
 <head>
+
     <h1>Exploración de Ofertas en Airbnb: Precios y Ubicaciones</h1>
+
 </head>
+
 <body>
-<p>"Explora el fascinante mundo de Airbnb a través de visualizaciones informativas. Desde patrones de alquiler hasta precios y ubicaciones populares, esta presentación te sumergirá en datos valiosos que revelan la diversidad y dinámica de la oferta de alquiler en esta plataforma global. Como usuaria de Airbnb, mi objetivo es proporcionarte una visión clara y práctica, destacando aspectos relevantes que pueden ser de interés tanto para viajeros como para inversores inmobiliarios. ¡Descubre nuevas perspectivas sobre el emocionante universo de alquiler de propiedades a corto plazo con estas visualizaciones interactivas!"</p>
 
-<p>"En primer lugar hemos hecho un estudio de las variables de los datos, aqui presentamos algunas de las visualizacion que nos han ayudado a entenderlos:"</p>
+    <p>"Explora el fascinante mundo de Airbnb a través de visualizaciones informativas. Desde patrones de alquiler hasta precios y ubicaciones populares, esta presentación te sumergirá en datos valiosos que revelan la diversidad y dinámica de la oferta de alquiler en esta plataforma global. Como usuaria de Airbnb, mi objetivo es proporcionarte una visión clara y práctica, destacando aspectos relevantes que pueden ser de interés tanto para viajeros como para inversores inmobiliarios. ¡Descubre nuevas perspectivas sobre el emocionante universo de alquiler de propiedades a corto plazo con estas visualizaciones interactivas!"</p>
 
-<p>"Comprobamos las relaciones que hay entre las variables categoricas</p>
+    <p>"En primer lugar hemos hecho un estudio de las variables de los datos, aqui presentamos algunas de las visualizacion que nos han ayudado a entenderlos:"</p>
 
-<img src="images/Chi.png" alt="Texto alternativo">
-<h1>¿Cómo se distribuyen geográficamente las propiedades de Airbnb en la ciudad de Nueva York?</h1>
+    <p>"Comprobamos las relaciones que hay entre las variables categoricas</p>
 
+    <img src="./images/chi-cuadrado.png" alt="Texto alternativo">
 
-</body>
-<html>
-<head>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    
-        <script>
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        </script>
-    
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_405f595d7f61dd244d585b1df2b0bf2b {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-                .leaflet-container { font-size: 1rem; }
-            </style>
-        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
-</head>
-<body>
-    
-    
-            <div class="folium-map" id="map_405f595d7f61dd244d585b1df2b0bf2b" ></div>
-        
+    <h1>¿Cómo se distribuyen geográficamente las propiedades de Airbnb en la ciudad de Nueva York?</h1>
+
+        <div class="folium-map" id="map_405f595d7f61dd244d585b1df2b0bf2b" ></div>
+
 </body>
 <script>
-    
-    
+
             var map_405f595d7f61dd244d585b1df2b0bf2b = L.map(
                 "map_405f595d7f61dd244d585b1df2b0bf2b",
                 {
