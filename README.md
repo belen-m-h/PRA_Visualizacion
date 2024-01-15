@@ -21,5 +21,15 @@ Podemos ver que en general los precios se mantienen independientemente de el tip
 
 Aqui podemos ver que casi todos los alojameintos ofertados son apartamentos o casas enteras o habitaciones provadas, siendo las habitaciones compartidas o los hoteles muy reducidos
 
+## ¿Cómo afectan las características de los alojamientos en el precio?
+![precio_distribucion.png](images%2Fprecio_distribucion.png)
+
+Aqui podemos apreciar que las habitaciones de hotel, que ya hemos visto que es de la menor ofertada son las mas caras, pero los precios son muy similares.
+
+## ¿Cómo se distribuyen las calificaciones de las revisiones?
+![calificaciones2.png](images%2Fcalificaciones2.png)
+
+Podemos observar tambien que son menos los alojamiento que oferta aribnb que tienen una estrella, mientras que el resto de puntuaciones se han asignado mas o menos el mismo numero de veces.
+
 
 
