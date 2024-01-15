@@ -32,5 +32,12 @@ Aqui podemos apreciar que las habitaciones de hotel, que ya hemos visto que es d
 
 Podemos observar tambien que son menos los alojamiento que oferta aribnb que tienen una estrella, mientras que el resto de puntuaciones se han asignado mas o menos el mismo numero de veces.
 
+## ¿Las calificaciones afectan al precio?
+![precio_calificacion.png](images%2Fprecio_calificacion.png)
 
+Podemos ver que independientemente de la calificacion, los precios no varian
 
+## ¿La politica de cancelacion afecta al precio?
+![precio_cancelacion.png](images%2Fprecio_cancelacion.png)
+
+Podemos ver que igualmente no afecta al precio.

@@ -70,17 +70,17 @@ plt.savefig(ruta_grafico)
 # Cuestiones referentes a las zonas geográficas:
     # ¿Cómo se distribuyen geográficamente las propiedades de Airbnb en la ciudad de Nueva York?
 
-# map_center = [df['lat'].mean(), df['long'].mean()]
-# mymap = folium.Map(location=map_center, zoom_start=10)
-#
-# # Agregar marcadores para cada casa
-# marker_cluster = MarkerCluster().add_to(mymap)
-#
-# for index, row in df.iterrows():
-#     folium.Marker([row['lat'], row['long']]).add_to(marker_cluster)
-#
-# # Mostrar el mapa
-# mymap.save('mapa_de_casas.html')
+map_center = [df['lat'].mean(), df['long'].mean()]
+mymap = folium.Map(location=map_center, zoom_start=10)
+
+# Agregar marcadores para cada casa
+marker_cluster = MarkerCluster().add_to(mymap)
+
+for index, row in df.iterrows():
+    folium.Marker([row['lat'], row['long']]).add_to(marker_cluster)
+
+# Mostrar el mapa
+mymap.save('mapa_de_casas.html')
 
     # ¿Se observan diferencias notables en precios y disponibilidad entre distintos vecindarios?
 
@@ -134,60 +134,21 @@ plt.ylabel('Frecuencia')
 ruta_grafico = os.path.join('../images', 'calificaciones2.png')
 plt.savefig(ruta_grafico)
     # ¿Hay correlaciones entre las diferentes categorías de calificaciones y el precio?
-
-# Temporalidad:
-    # ¿Existen patrones estacionales en los precios o en la ocupación de las propiedades?
-
-# Visualizar patrones estacionales en los precios
-# plt.figure(figsize=(12, 6))
-# sns.lineplot(x=df.index, y='price', data=df, color='skyblue')
-# plt.title('Patrones Estacionales en los Precios a lo Largo del Tiempo')
-# plt.xlabel('Fecha')
-# plt.ylabel('Precio')
-# plt.show()
+plt.figure(figsize=(10, 6))
+sns.barplot(x='review rate number', y='price', data=df, palette='viridis')
+plt.title('Precios según la Calificacion')
+plt.xlabel('Tipo de Alojamiento')
+plt.ylabel('Precio')
+ruta_grafico = os.path.join('../images', 'precio_calificacion.png')
+plt.savefig(ruta_grafico)
 
 
-# Servicios de las propiedades:
-    # ¿Cuáles son los servicios más comunes ofrecidos por los anfitriones?
-    # ¿Existe una correlación entre la presencia de ciertos servicios y el precio?
+# Política de Cancelación:
 
-# plt.figure(figsize=(10, 6))
-# sns.boxplot(x='cancellation_policy', y='price', data=df, palette='Set3')
-# plt.title('Relación entre Precios y Política de Cancelación')
-# plt.xlabel('Política de Cancelación')
-# plt.ylabel('Precio')
-# plt.show()
-#
-# plt.figure(figsize=(10, 6))
-# sns.barplot(x='cancellation_policy', y='price', data=df, palette='Set3', estimator=np.median)
-# plt.title('Relación entre Precios y Política de Cancelación')
-# plt.xlabel('Política de Cancelación')
-# plt.ylabel('Precio Mediano')
-# plt.show()
-
-
-# Interactivo
-import plotly.express as px
-
-# Supongamos que tienes un DataFrame llamado 'df' con las columnas relevantes, incluyendo 'price' y 'cancellation_policy'
-# Asegúrate de que estas columnas y los datos estén correctamente estructurados
-
-# Crear un DataFrame de ejemplo
-#
-# # Crear el gráfico interactivo con Plotly
-# fig = px.scatter(df, x='cancellation_policy', y='price', color='price', title='Relación entre Precios y Política de Cancelación',
-#                  labels={'cancellation_policy': 'Política de Cancelación', 'price': 'Precio'})
-# fig.update_layout(showlegend=False)  # Ocultar la leyenda del color para mejorar la visualización
-#
-# # Mostrar el gráfico interactivo
-# fig.show()
-
-
-# Crear el mapa interactivo con Plotly
-fig = px.scatter_mapbox(df, lat='lat', lon='long', color='price', size='price',
-                        color_continuous_scale='Viridis', size_max=15, zoom=10,
-                        mapbox_style="carto-positron", title='Mapa Interactivo de Precios')
-fig.update_layout(showlegend=False)  # Ocultar la leyenda del color para mejorar la visualización
-
-# Mostrar el mapa interactivo
-fig.show()
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='cancellation_policy', y='price', data=df, palette='Set3')
+plt.title('Relación entre Precios y Política de Cancelación')
+plt.xlabel('Política de Cancelación')
+plt.ylabel('Precio')
+ruta_grafico = os.path.join('../images', 'precio_cancelacion.png')
+plt.savefig(ruta_grafico)
