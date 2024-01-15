@@ -6,13 +6,14 @@ Explora el fascinante mundo de Airbnb a través de visualizaciones informativas.
 En primer lugar hemos hecho un estudio de las variables de los datos, aqui presentamos algunas de las visualizacion que nos han ayudado a entenderlos:
 
 ## Comprobamos las relaciones que hay entre las variables categoricas
-    ![chi-cuadrado.png](images%2Fchi-cuadrado.png)
+![chi-cuadrado.png](images%2Fchi-cuadrado.png)
 
 ## ¿Cómo se distribuyen geográficamente las propiedades de Airbnb en la ciudad de Nueva York?
-    [Mapa de casas de Airbnb](https://belen-m-h.github.io/PRA_Visualizacion/data/mapa_de_casas.html)
+[Mapa de casas de Airbnb](https://belen-m-h.github.io/PRA_Visualizacion/data/mapa_de_casas.html)
 
 ## ¿Se observan diferencias notables en precios y disponibilidad entre distintos vecindarios?</h1>
-    ![room_borough.png](images%2Froom_borough.png)
+
+![room_borough.png](images%2Froom_borough.png)
 
 Podemos ver que en general los precios se mantienen independientemente de el tipo de alojamiento que sea y de la zona.
 
