@@ -3,11 +3,6 @@
 
 Explora el fascinante mundo de Airbnb a través de visualizaciones informativas. Desde patrones de alquiler hasta precios y ubicaciones populares, esta presentación te sumergirá en datos valiosos que revelan la diversidad y dinámica de la oferta de alquiler en esta plataforma global. Como usuaria de Airbnb, mi objetivo es proporcionarte una visión clara y práctica, destacando aspectos relevantes que pueden ser de interés tanto para viajeros como para inversores inmobiliarios. ¡Descubre nuevas perspectivas sobre el emocionante universo de alquiler de propiedades a corto plazo con estas visualizaciones interactivas!
 
-En primer lugar hemos hecho un estudio de las variables de los datos, aqui presentamos algunas de las visualizacion que nos han ayudado a entenderlos:
-
-## Comprobamos las relaciones que hay entre las variables categoricas
-![chi-cuadrado.png](images%2Fchi-cuadrado.png)
-
 ## ¿Cómo se distribuyen geográficamente las propiedades de Airbnb en la ciudad de Nueva York?
 [Mapa de casas de Airbnb](https://belen-m-h.github.io/PRA_Visualizacion/data/mapa_de_casas.html)
 
