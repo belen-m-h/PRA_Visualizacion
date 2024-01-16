@@ -77,7 +77,7 @@ mymap = folium.Map(location=map_center, zoom_start=10)
 marker_cluster = MarkerCluster().add_to(mymap)
 
 for index, row in df.iterrows():
-    folium.Marker([row['lat'], row['long']]).add_to(marker_cluster)
+    folium.Marker([row['lat'], row['long']], popup=f"${row['price']}",).add_to(marker_cluster)
 
 # Mostrar el mapa
 mymap.save('mapa_de_casas.html')
