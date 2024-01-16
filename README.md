@@ -11,7 +11,7 @@ En primer lugar hemos hecho un estudio de las variables de los datos, aqui prese
 ## ¿Cómo se distribuyen geográficamente las propiedades de Airbnb en la ciudad de Nueva York?
 [Mapa de casas de Airbnb](https://belen-m-h.github.io/PRA_Visualizacion/data/mapa_de_casas.html)
 
-## ¿Se observan diferencias notables en precios y disponibilidad entre distintos vecindarios?</h1>
+## ¿Se observan diferencias notables en precios y disponibilidad entre distintos vecindarios?
 
 ![room_borough.png](images%2Froom_borough.png)
 
